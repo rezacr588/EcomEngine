@@ -68,6 +68,9 @@ public class UserService {
         userRepository.setActiveForUser(active, userId);
     }
 
+    @Autowired
+    private EmailService emailService;
+
     public String initiatePasswordReset(String email) {
         Optional<User> userOptional = userRepository.findByEmail(email);
         if (userOptional.isPresent()) {
@@ -75,14 +78,12 @@ public class UserService {
             String resetToken = UUID.randomUUID().toString();
             user.setResetToken(resetToken);
             userRepository.save(user);
-            // TODO: sendResetTokenByEmail(email, resetToken);
+            emailService.sendResetTokenByEmail(email, resetToken);
             return resetToken;
         } else {
-            // Consider using a custom exception for better error handling
             throw new UserNotFoundException("User with email " + email + " not found.");
         }
     }
-
 
     public boolean resetPassword(String token, String newPassword) {
         Optional<User> userOptional = userRepository.findByResetToken(token);
