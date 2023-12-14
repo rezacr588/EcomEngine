@@ -13,7 +13,7 @@ import jakarta.persistence.EnumType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-
+import java.util.UUID;
 import java.util.Date;
 
 @Entity
@@ -48,6 +48,7 @@ public class User {
 
     private String firstName;
     private String lastName;
+    private String resetToken;
 
     // New fields
     private String phoneNumber; // Ensure you validate this if you plan to use it for SMS notifications, etc.
@@ -62,5 +63,32 @@ public class User {
     
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModified; // Automatically update this field when any change is made
+
+    // Getter and setter for the password
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    // Getter and setter for the username
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    // Getter and setter for the resetToken
+    public String getResetToken() {
+        return resetToken;
+    }
+
+    public void setResetToken(String resetToken) {
+        this.resetToken = UUID.randomUUID().toString();
+    }
 }
 
