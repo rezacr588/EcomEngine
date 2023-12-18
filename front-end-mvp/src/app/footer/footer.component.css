@@ -1,0 +1,22 @@
+.footer {
+  background-color: #f8f9fa;
+  color: #333;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  display: inline-flex;
+  gap: 1rem;
+}
+
+.footer-links li {
+  display: inline;
+}
+
+.footer-links a {
+  color: #007bff;
+  text-decoration: none;
+}
