@@ -1,0 +1,9 @@
+<ngb-carousel *ngIf="featuredProducts.length > 0">
+  <ng-template ngbSlide *ngFor="let product of featuredProducts">
+    <img [src]="product.imageUrl" alt="Product image" />
+    <div class="carousel-caption">
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.description }}</p>
+    </div>
+  </ng-template>
+</ngb-carousel>

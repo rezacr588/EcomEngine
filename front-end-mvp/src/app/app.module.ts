@@ -17,9 +17,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FeaturedProductsCarouselComponent } from './featured-products-carousel/featured-products-carousel.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, FooterComponent, HomeComponent, ProductsComponent, ProductDetailsComponent, CartComponent, CheckoutComponent, LoginComponent, RegisterComponent, ProfileComponent, OrderConfirmationComponent, DashboardComponent, NotFoundComponent],
+  declarations: [AppComponent, NavbarComponent, FooterComponent, HomeComponent, ProductsComponent, ProductDetailsComponent, CartComponent, CheckoutComponent, LoginComponent, RegisterComponent, ProfileComponent, OrderConfirmationComponent, DashboardComponent, NotFoundComponent, FeaturedProductsCarouselComponent],
   imports: [BrowserModule, AppRoutingModule, RouterModule],
   providers: [],
   bootstrap: [AppComponent],
