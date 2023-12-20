@@ -17,8 +17,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { FeaturedProductsCarouselComponent } from './featured-products-carousel/featured-products-carousel.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MaterialCarouselComponent } from './material-carousel/material-carousel.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -36,9 +37,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     OrderConfirmationComponent,
     DashboardComponent,
     NotFoundComponent,
-    FeaturedProductsCarouselComponent,
+    MaterialCarouselComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, RouterModule, NgbModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,0 +1,15 @@
+<div class="carousel">
+  <mat-card
+    *ngFor="let item of items; let i = index"
+    [class.active]="i === activeSlideIndex"
+  >
+    <mat-card-header>
+      <!-- Header content (optional) -->
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ item.description }}</p>
+    </mat-card-content>
+  </mat-card>
+  <button mat-button (click)="previous()">Previous</button>
+  <button mat-button (click)="next()">Next</button>
+</div>
