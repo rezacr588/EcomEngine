@@ -16,6 +16,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     // Find a product by name (assuming names are unique)
     Optional<Product> findByName(String name);
 
+    // Find featured products
+    List<Product> findByFeaturedIsTrue();
+
     // You can add more queries as per your requirements, such as:
     // List<Product> findByPriceBetween(Double minPrice, Double maxPrice);
     // List<Product> findByDescriptionContaining(String keyword);

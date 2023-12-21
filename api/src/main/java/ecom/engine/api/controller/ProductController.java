@@ -64,6 +64,10 @@ public class ProductController {
         return ResponseEntity.ok().build();
     }
 
-    // Additional endpoints as required...
-
+    // Get featured products
+    @GetMapping("/featured")
+    public ResponseEntity<List<Product>> getFeaturedProducts() {
+        List<Product> products = productService.getFeaturedProducts();
+        return ResponseEntity.ok(products);
+    }
 }

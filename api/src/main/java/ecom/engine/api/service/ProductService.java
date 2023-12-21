@@ -44,5 +44,8 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
-    // Additional methods as needed, such as find by category, name, etc.
+    // Method to get featured products
+    public List<Product> getFeaturedProducts() {
+        return productRepository.findByFeaturedIsTrue();
+    }
 }

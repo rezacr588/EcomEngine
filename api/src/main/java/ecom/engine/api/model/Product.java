@@ -23,6 +23,8 @@ public class Product {
     // If you're planning to store image URLs
     private String imageUrl;
 
+    private boolean featured;
+
     // Constructors
     public Product() {
         // Default constructor
@@ -86,5 +88,12 @@ public class Product {
         this.imageUrl = imageUrl;
     }
 
-    // Additional methods and business logic as needed
+    // Featured products
+    public boolean isFeatured() {
+        return featured;
+    }
+
+    public void setFeatured(boolean featured) {
+        this.featured = featured;
+    }
 }
