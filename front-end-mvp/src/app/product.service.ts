@@ -9,6 +9,8 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getFeaturedProducts() {
-    return this.http.get<Product[]>(`[API_ENDPOINT]/products/featured`);
+    return this.http.get<Product[]>(
+      `http://localhost:8080/api/products/featured`
+    );
   }
 }
