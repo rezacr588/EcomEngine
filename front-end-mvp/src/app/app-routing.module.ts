@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CreateProductComponent } from './create-product/create-product.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,7 +23,14 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'order-confirmation', component: OrderConfirmationComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+  },
+  {
+    path: 'dashboard/create-product',
+    component: CreateProductComponent,
+  },
   { path: '**', component: NotFoundComponent },
 ];
 

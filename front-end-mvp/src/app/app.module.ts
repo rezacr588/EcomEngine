@@ -20,6 +20,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { MaterialCarouselComponent } from './material-carousel/material-carousel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
+import { CreateProductComponent } from './create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MatCardModule } from '@angular/material/card';
     DashboardComponent,
     NotFoundComponent,
     MaterialCarouselComponent,
+    CreateProductComponent,
   ],
   imports: [
     BrowserModule,
