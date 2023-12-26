@@ -1,0 +1,16 @@
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-column {
+  flex: 50%; /* Adjust the width for two columns */
+  box-sizing: border-box;
+  padding: 8px; /* Optional spacing */
+}
+
+@media (max-width: 600px) {
+  .form-column {
+    flex: 100%;
+  }
+}

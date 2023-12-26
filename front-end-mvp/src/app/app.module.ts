@@ -18,10 +18,14 @@ import { OrderConfirmationComponent } from './order-confirmation/order-confirmat
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MaterialCarouselComponent } from './material-carousel/material-carousel.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { CreateProductComponent } from './create-product/create-product.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +51,12 @@ import { CreateProductComponent } from './create-product/create-product.componen
     RouterModule,
     BrowserAnimationsModule,
     MatCardModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
