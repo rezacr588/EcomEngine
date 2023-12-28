@@ -17,4 +17,8 @@ export class ProductService {
   addProduct(product: Product) {
     return this.http.post(`http://localhost:8080/api/products`, product);
   }
+
+  getAllProducts() {
+    return this.http.get<Product[]>(`http://localhost:8080/api/products`);
+  }
 }

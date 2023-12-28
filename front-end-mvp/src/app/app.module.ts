@@ -27,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductListComponent } from './product-list/product-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     NotFoundComponent,
     MaterialCarouselComponent,
     CreateProductComponent,
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,

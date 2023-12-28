@@ -12,6 +12,7 @@ import { OrderConfirmationComponent } from './order-confirmation/order-confirmat
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CreateProductComponent } from './create-product/create-product.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'dashboard/create-product',
     component: CreateProductComponent,
+  },
+  {
+    path: 'dashboard/product-list',
+    component: ProductListComponent,
   },
   { path: '**', component: NotFoundComponent },
 ];
