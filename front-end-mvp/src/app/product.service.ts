@@ -13,4 +13,8 @@ export class ProductService {
       `http://localhost:8080/api/products/featured`
     );
   }
+
+  addProduct(product: Product) {
+    return this.http.post(`http://localhost:8080/api/products`, product);
+  }
 }
