@@ -31,8 +31,4 @@ public class CartController {
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
-
-    // Additional endpoints as required...
-    // For example, updating item quantities or removing items
-
 }

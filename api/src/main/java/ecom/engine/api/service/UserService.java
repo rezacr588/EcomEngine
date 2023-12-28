@@ -4,7 +4,6 @@ import ecom.engine.api.exception.UserNotFoundException;
 import ecom.engine.api.model.User;
 import ecom.engine.api.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -14,17 +13,15 @@ import java.util.UUID;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
     }
 
     // Register a new user with encrypted password
     public User registerUser(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(user.getPassword());
         return userRepository.save(user);
     }
 
@@ -89,7 +86,7 @@ public class UserService {
         Optional<User> userOptional = userRepository.findByResetToken(token);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-            user.setPassword(passwordEncoder.encode(newPassword));
+            user.setPassword(newPassword);
             user.setResetToken(null); // Clear the reset token
             userRepository.save(user);
             return true;
