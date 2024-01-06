@@ -28,4 +28,9 @@ export class ProductListComponent implements OnInit {
       },
     });
   }
+
+  handleImageError(event: any) {
+    event.target.style.display = 'none';
+    event.target.nextElementSibling.style.display = 'block';
+  }
 }

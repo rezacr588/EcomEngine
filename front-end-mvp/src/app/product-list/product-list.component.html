@@ -1,17 +1,39 @@
 <!-- src/app/product-list/product-list.component.html -->
 
 <div *ngIf="products.length; else noProducts">
-  <div *ngFor="let product of products" class="product">
-    <h2>{{ product.name }} ({{ product.category }})</h2>
-    <p>{{ product.description }}</p>
-    <p>Price: {{ product.price | currency }}</p>
-    <img
-      [src]="product.imageUrl"
-      [alt]="product.name"
-      *ngIf="product.imageUrl"
-    />
-    <button *ngIf="product.featured">Featured Product</button>
-  </div>
+  <table class="product-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Featured</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>
+          <img
+            [src]="product.imageUrl"
+            [alt]="product.name"
+            class="product-image"
+            *ngIf="product.imageUrl"
+            (error)="handleImageError($event)"
+          />
+          <div class="empty-image" *ngIf="!product.imageUrl"></div>
+        </td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.price | currency }}</td>
+        <td>
+          <input type="checkbox" [checked]="product.featured" disabled />
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <ng-template #noProducts>
