@@ -1,3 +1,16 @@
-<p>dashboard works!</p>
-<a routerLink="/dashboard/create-product">create-product</a>
-<a routerLink="/dashboard/product-list">product-list</a>
+<!-- Assuming this is part of your dashboard.component.html -->
+
+<div class="dashboard-container">
+  <nav class="sidebar">
+    <p class="dashboard-title">Admin Dashboard</p>
+    <a routerLink="/dashboard/create-product" class="nav-link"
+      >Create Product</a
+    >
+    <a routerLink="/dashboard/product-list" class="nav-link">Product List</a>
+  </nav>
+  <div class="content">
+    <h1>Welcome, [Admin Name]!</h1>
+    <p>Here's a quick overview of your recent activity:</p>
+    <!-- Add widgets or other summary information here -->
+  </div>
+</div>
