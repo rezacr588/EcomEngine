@@ -1,41 +1,45 @@
 <!-- src/app/product-list/product-list.component.html -->
 
-<div *ngIf="products.length; else noProducts">
-  <table class="product-table">
-    <thead>
-      <tr>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Featured</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of products">
-        <td>
-          <img
-            [src]="product.imageUrl"
-            [alt]="product.name"
-            class="product-image"
-            *ngIf="product.imageUrl"
-            (error)="handleImageError($event)"
-          />
-          <div class="empty-image" *ngIf="!product.imageUrl"></div>
-        </td>
-        <td>{{ product.name }}</td>
-        <td>{{ product.category }}</td>
-        <td>{{ product.description }}</td>
-        <td>{{ product.price | currency }}</td>
-        <td>
-          <input type="checkbox" [checked]="product.featured" disabled />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="dashboard-container">
+  <div class="product-list-header">
+    <h1>Product Management</h1>
+  </div>
+  <div *ngIf="products.length; else noProducts" class="product-table-container">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Featured</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>
+            <img
+              [src]="product.imageUrl"
+              [alt]="product.name"
+              class="product-image"
+              *ngIf="product.imageUrl"
+              (error)="handleImageError($event)"
+            />
+            <div class="empty-image" *ngIf="!product.imageUrl"></div>
+          </td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price | currency }}</td>
+          <td>
+            <input type="checkbox" [checked]="product.featured" disabled />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #noProducts>
+    <p class="no-products">No products available. Consider adding new ones!</p>
+  </ng-template>
 </div>
-
-<ng-template #noProducts>
-  <p>No products available.</p>
-</ng-template>

@@ -1,5 +1,30 @@
 /* src/app/product-list/product-list.component.css */
 
+.dashboard-container {
+  padding: 20px;
+  background-color: #ecf0f1;
+  min-height: 100vh;
+}
+
+.product-list-header {
+  background-color: #34495e;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.product-list-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.product-table-container {
+  margin-top: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .product-table {
   width: 100%;
   border-collapse: collapse;
@@ -26,9 +51,15 @@
 }
 
 .empty-image {
-  display: inline-block; /* or 'none' if you're using the error handling method */
+  display: inline-block;
   width: 100px;
   height: 100px;
   background-color: #f0f0f0;
   border: 1px dashed #ccc;
+}
+
+.no-products {
+  text-align: center;
+  padding: 20px;
+  color: #666;
 }

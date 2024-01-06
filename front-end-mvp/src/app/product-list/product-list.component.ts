@@ -1,8 +1,8 @@
 // src/app/product-list/product-list.component.ts
 
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../models/product.model'; // Adjust the path as necessary
-import { ProductService } from '../product.service'; // Adjust the path as necessary
+import { Product } from '../models/product.model';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-list',
