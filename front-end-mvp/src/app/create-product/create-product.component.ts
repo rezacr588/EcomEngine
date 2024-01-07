@@ -1,3 +1,5 @@
+// src/app/create-product/create-product.component.ts
+
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
