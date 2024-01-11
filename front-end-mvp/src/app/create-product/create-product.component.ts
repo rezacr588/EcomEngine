@@ -1,7 +1,6 @@
-// src/app/create-product/create-product.component.ts
-
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router'; // Import Router
 import { ProductService } from '../product.service';
 
 @Component({
@@ -12,7 +11,11 @@ import { ProductService } from '../product.service';
 export class CreateProductComponent {
   productForm: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder, private productService: ProductService) {
+  constructor(
+    private fb: FormBuilder,
+    private productService: ProductService,
+    private router: Router // Inject Router
+  ) {
     this.createForm();
   }
 
@@ -32,7 +35,8 @@ export class CreateProductComponent {
       this.productService.addProduct(this.productForm.value).subscribe({
         next: (response) => {
           console.log('Product added successfully', response);
-          // Handle successful response, maybe navigate or clear the form
+          // Navigate to the product list page
+          this.router.navigate(['/dashboard/product-list']);
         },
         error: (error) => {
           console.error('Error adding product', error);
