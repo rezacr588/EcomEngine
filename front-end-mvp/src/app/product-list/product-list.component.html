@@ -14,6 +14,7 @@
           <th>Description</th>
           <th>Price</th>
           <th>Featured</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -34,6 +35,11 @@
           <td>{{ product.price | currency }}</td>
           <td>
             <input type="checkbox" [checked]="product.featured" disabled />
+          </td>
+          <td>
+            <button (click)="deleteProduct(product.id)" class="delete-button">
+              Delete
+            </button>
           </td>
         </tr>
       </tbody>

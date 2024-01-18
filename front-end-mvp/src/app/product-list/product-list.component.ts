@@ -33,4 +33,17 @@ export class ProductListComponent implements OnInit {
     event.target.style.display = 'none';
     event.target.nextElementSibling.style.display = 'block';
   }
+
+  deleteProduct(id: number | undefined) {
+    if (confirm('Are you sure you want to delete this product?') && id) {
+      this.productService.removeProduct(id).subscribe({
+        next: () => {
+          this.loadProducts(); // Reload the list to reflect the deletion
+        },
+        error: (err) => {
+          console.error('Error deleting product:', err);
+        },
+      });
+    }
+  }
 }
