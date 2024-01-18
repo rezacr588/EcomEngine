@@ -18,6 +18,11 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
+    // get 5 latest products
+    public List<Product> getLatestProducts() {
+        return productRepository.findTop5ByOrderByIdDesc();
+    }
+
     // Method to add a new product
     public Product addProduct(Product product) {
         return productRepository.save(product);

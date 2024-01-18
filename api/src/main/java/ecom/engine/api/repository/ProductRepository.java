@@ -19,6 +19,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     // Find featured products
     List<Product> findByFeaturedIsTrue();
 
+    // Find top 5 products by ID in descending order
+    List<Product> findTop5ByOrderByIdDesc();
+
     // You can add more queries as per your requirements, such as:
     // List<Product> findByPriceBetween(Double minPrice, Double maxPrice);
     // List<Product> findByDescriptionContaining(String keyword);

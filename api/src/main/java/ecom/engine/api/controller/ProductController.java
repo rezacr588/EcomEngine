@@ -70,4 +70,12 @@ public class ProductController {
         List<Product> products = productService.getFeaturedProducts();
         return ResponseEntity.ok(products);
     }
+
+    // Get 5 latest products
+    @GetMapping("/latest")
+    public ResponseEntity<List<Product>> getLatestProducts() {
+        List<Product> products = productService.getLatestProducts();
+        return ResponseEntity.ok(products);
+    }
+
 }
