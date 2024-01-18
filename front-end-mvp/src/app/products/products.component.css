@@ -1,0 +1,78 @@
+/* Slider container */
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px; /* Adjust as needed */
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Slider wrapper */
+.slider-wrapper {
+  display: flex;
+  transition: all 0.5s ease;
+}
+
+/* Each slide */
+.slide {
+  min-width: 100%;
+  transition: ease 0.5s;
+  position: relative;
+}
+
+/* Image in each slide */
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Slide description */
+.slide-description {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Navigation arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+/* Slide indicators */
+.indicators {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 5px;
+  cursor: pointer;
+}
