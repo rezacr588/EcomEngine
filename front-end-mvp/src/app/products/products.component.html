@@ -1,6 +1,8 @@
-<!-- Slider for Featured Products -->
 <div class="slider-container">
-  <div class="slider-wrapper">
+  <div
+    class="slider-wrapper"
+    [style.transform]="'translateX(-' + currentSlideIndex * 100 + '%)'"
+  >
     <!-- Dynamic Slide Generation -->
     <div class="slide" *ngFor="let product of featuredProducts">
       <img [src]="product.imageUrl" alt="{{ product.name }}" />
@@ -14,13 +16,4 @@
   <!-- Navigation Arrows -->
   <button class="arrow left" (click)="previousSlide()">&#10094;</button>
   <button class="arrow right" (click)="nextSlide()">&#10095;</button>
-
-  <!-- Indicators -->
-  <div class="indicators">
-    <span
-      class="indicator"
-      *ngFor="let product of featuredProducts; let i = index"
-      (click)="currentSlide(i + 1)"
-    ></span>
-  </div>
 </div>
