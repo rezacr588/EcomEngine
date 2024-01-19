@@ -60,3 +60,53 @@
 .arrow.right {
   right: 10px;
 }
+
+/* Increase Slider Height */
+.slider-container {
+  height: 50vh; /* Increased height */
+}
+
+/* Latest Products Container */
+.latest-products-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Latest Products List */
+.latest-products-list {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+/* Each Product Item in the List */
+.latest-product-item {
+  flex: 0 0 auto; /* Prevent shrinking and ensure items maintain their width */
+  margin-right: 20px;
+  width: 200px; /* Fixed width for each item */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Image in Each Product Item */
+.latest-product-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+/* Product Info */
+.product-info {
+  padding: 10px;
+  background-color: #f8f8f8;
+  text-align: left;
+}
+
+/* Ensure only the first five items are displayed */
+.latest-products-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}

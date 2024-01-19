@@ -9,17 +9,25 @@ import { ProductService } from '../product.service';
 })
 export class ProductsComponent implements OnInit {
   featuredProducts: Product[] = [];
+  latestProducts: Product[] = [];
   currentSlideIndex: number = 0;
 
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
     this.getFeaturedProducts();
+    this.getLatestProducts();
   }
 
   getFeaturedProducts() {
     this.productService.getFeaturedProducts().subscribe((products) => {
       this.featuredProducts = products;
+    });
+  }
+
+  getLatestProducts() {
+    this.productService.getLatestProducts().subscribe((products) => {
+      this.latestProducts = products;
     });
   }
 
