@@ -1,28 +1,34 @@
+/* Slider Container */
 .slider-container {
   position: relative;
   width: 100%;
-  max-width: 1000px;
-  margin: auto;
+  height: 40vh; /* 40% of the viewport height */
   overflow: hidden;
+  margin: 0 auto; /* Center the slider */
 }
 
+/* Slider Wrapper */
 .slider-wrapper {
   display: flex;
   transition: all 0.5s ease;
+  height: 100%;
 }
 
+/* Each Slide */
 .slide {
   min-width: 100%;
-  transition: ease 0.5s;
   position: relative;
+  height: 100%; /* Ensure each slide fills the container height */
 }
 
+/* Image in Each Slide */
 .slide img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%; /* Stretch image to fill the slide */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
 }
 
+/* Slide Description */
 .slide-description {
   position: absolute;
   bottom: 20px;
@@ -31,8 +37,10 @@
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 5px;
+  max-width: 80%; /* Prevent description from taking full width */
 }
 
+/* Navigation Arrows */
 .arrow {
   position: absolute;
   top: 50%;

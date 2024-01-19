@@ -1,0 +1,6 @@
+/* Main Container for the Page */
+.container {
+  padding: 20px; /* Space around all elements */
+  max-width: 1200px; /* Adjust the max width as needed */
+  margin: auto; /* Center the container */
+}
