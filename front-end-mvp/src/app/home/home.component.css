@@ -1,0 +1,67 @@
+/* Slider Container */
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 40vh; /* 40% of the viewport height */
+  overflow: hidden;
+  margin: 0 auto; /* Center the slider */
+}
+
+/* Slider Wrapper */
+.slider-wrapper {
+  display: flex;
+  transition: all 0.5s ease;
+  height: 100%;
+}
+
+/* Each Slide */
+.slide {
+  min-width: 100%;
+  position: relative;
+  height: 100%; /* Ensure each slide fills the container height */
+}
+
+/* Image in Each Slide */
+.slide img {
+  width: 100%;
+  height: 100%; /* Stretch image to fill the slide */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+/* Slide Description */
+.slide-description {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 80%; /* Prevent description from taking full width */
+}
+
+/* Navigation Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+/* Increase Slider Height */
+.slider-container {
+  height: 50vh; /* Increased height */
+}
