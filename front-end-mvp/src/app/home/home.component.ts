@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from '../models/product.model';
 import { ProductService } from '../product.service';
 
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
   featuredProducts: Product[] = [];
   currentSlideIndex: number = 0;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit() {
     this.getFeaturedProducts();
@@ -32,5 +33,9 @@ export class HomeComponent implements OnInit {
     this.currentSlideIndex =
       (this.currentSlideIndex - 1 + this.featuredProducts.length) %
       this.featuredProducts.length;
+  }
+
+  navigateToProduct(id: number) {
+    this.router.navigate(['/products', id]);
   }
 }
