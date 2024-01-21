@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from '../models/product.model';
 import { ProductService } from '../product.service';
 
@@ -9,9 +10,8 @@ import { ProductService } from '../product.service';
 })
 export class ProductsComponent implements OnInit {
   latestProducts: Product[] = [];
-  currentSlideIndex: number = 0;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit() {
     this.getLatestProducts();
@@ -21,5 +21,9 @@ export class ProductsComponent implements OnInit {
     this.productService.getLatestProducts().subscribe((products) => {
       this.latestProducts = products;
     });
+  }
+
+  navigateToProduct(id: number) {
+    this.router.navigate(['/products', id]);
   }
 }

@@ -1,6 +1,6 @@
 // product.model.ts
 export class Product {
-  id?: number;
+  id: number;
   name: string;
   price: number;
   description: string;
@@ -14,9 +14,11 @@ export class Product {
     description: string,
     category: string,
     imageUrl: string,
-    featured: boolean
+    featured: boolean,
+    id: number
   ) {
     this.name = name;
+    this.id = id;
     this.price = price;
     this.description = description;
     this.category = category;

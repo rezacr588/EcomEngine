@@ -20,6 +20,7 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   overflow: hidden;
+  cursor: pointer; /* Change cursor on hover */
 }
 
 /* Image in Each Product Item */
