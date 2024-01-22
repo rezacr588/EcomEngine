@@ -1,0 +1,54 @@
+/* Container for the form */
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* Style for each form field */
+.form-field {
+  margin-bottom: 15px;
+}
+
+/* Style for the input fields */
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; /* Makes sure padding doesn't affect overall width */
+}
+
+/* Style for the label elements */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Style for the submit button */
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Change background color on hover for the button */
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Disabled button style */
+button[type="submit"]:disabled {
+  background-color: #cccccc;
+}
