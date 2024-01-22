@@ -35,7 +35,8 @@ public class User {
     private String username;
 
     @NotBlank(message = "Password is required")
-    // Depending on your password encoding strategy, you might want to adjust the max size
+    // Depending on your password encoding strategy, you might want to adjust the
+    // max size
     @Size(min = 8, message = "Password must be at least 8 characters")
     private String password;
 
@@ -52,15 +53,15 @@ public class User {
 
     // New fields
     private String phoneNumber; // Ensure you validate this if you plan to use it for SMS notifications, etc.
-    
+
     @Enumerated(EnumType.STRING)
     private Gender gender; // This can be an enum containing values like MALE, FEMALE, OTHER, etc.
 
     private Date dateOfBirth; // Use java.util.Date or java.time.LocalDate depending on your JPA version
-    
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt; // Automatically set the date when the account is created
-    
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModified; // Automatically update this field when any change is made
 
@@ -82,6 +83,15 @@ public class User {
         this.username = username;
     }
 
+    // Getter and setter for the email
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     // Getter and setter for the resetToken
     public String getResetToken() {
         return resetToken;
@@ -91,4 +101,3 @@ public class User {
         this.resetToken = UUID.randomUUID().toString();
     }
 }
-

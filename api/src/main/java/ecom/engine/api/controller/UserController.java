@@ -22,6 +22,8 @@ public class UserController {
     // Register a new user
     @PostMapping("/register")
     public ResponseEntity<User> registerUser(@RequestBody User user) {
+        System.out.println("User: " + user.getUsername() + " " + user.getEmail() + " " + user.getPassword());
+
         User savedUser = userService.registerUser(user);
         return ResponseEntity.ok(savedUser);
     }
@@ -37,7 +39,7 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
         User user = userService.findById(id)
-                               .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new RuntimeException("User not found"));
         return ResponseEntity.ok(user);
     }
 
