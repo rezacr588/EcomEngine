@@ -12,7 +12,6 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -28,6 +27,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductListComponent } from './product-list/product-list.component';
+import { RegisterComponent } from './features/auth/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +39,6 @@ import { ProductListComponent } from './product-list/product-list.component';
     CartComponent,
     CheckoutComponent,
     LoginComponent,
-    RegisterComponent,
     ProfileComponent,
     OrderConfirmationComponent,
     DashboardComponent,
@@ -47,6 +46,7 @@ import { ProductListComponent } from './product-list/product-list.component';
     MaterialCarouselComponent,
     CreateProductComponent,
     ProductListComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
