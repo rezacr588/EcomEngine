@@ -30,6 +30,11 @@ const routes: Routes = [
     path: 'dashboard/product-list',
     component: ProductListComponent,
   },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./features/auth/auth.module').then((m) => m.AuthModule),
+  },
   { path: '**', component: NotFoundComponent },
 ];
 
