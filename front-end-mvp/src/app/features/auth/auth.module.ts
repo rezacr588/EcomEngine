@@ -7,6 +7,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     RegisterComponent,
     ForgotPasswordComponent,
     ProfileComponent,
+    UsersComponent,
   ],
   imports: [
     CommonModule,
