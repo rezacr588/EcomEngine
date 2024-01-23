@@ -10,6 +10,8 @@ import { User } from 'src/app/models/user.model';
 export class UsersComponent implements OnInit {
   users: User[] = [];
 
+  displayedColumns: string[] = ['username', 'email', 'password'];
+
   constructor(private usersService: UsersService) {}
 
   ngOnInit(): void {

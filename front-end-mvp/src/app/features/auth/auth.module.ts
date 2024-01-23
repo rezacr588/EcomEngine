@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { UsersComponent } from './users/users.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { UsersComponent } from './users/users.component';
     AuthRoutingModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    MatTableModule,
   ],
 })
 export class AuthModule {}
