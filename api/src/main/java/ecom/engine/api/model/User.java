@@ -100,4 +100,31 @@ public class User {
     public void setResetToken(String resetToken) {
         this.resetToken = UUID.randomUUID().toString();
     }
+
+    // Getter and setter for the active status
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    // Getter and setter for the first name
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    // Getter and setter for the id
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

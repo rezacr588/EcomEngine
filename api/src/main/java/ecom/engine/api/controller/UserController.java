@@ -22,8 +22,6 @@ public class UserController {
     // Register a new user
     @PostMapping("/register")
     public ResponseEntity<User> registerUser(@RequestBody User user) {
-        System.out.println("User: " + user.getUsername() + " " + user.getEmail() + " " + user.getPassword());
-
         User savedUser = userService.registerUser(user);
         return ResponseEntity.ok(savedUser);
     }

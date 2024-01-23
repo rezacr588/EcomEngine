@@ -1,10 +1,5 @@
 <div *ngIf="users.length; else noUsers">
   <mat-table [dataSource]="users" class="mat-elevation-z8">
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-      <mat-cell *matCellDef="let user"> {{ user.id }} </mat-cell>
-    </ng-container>
-
     <ng-container matColumnDef="username">
       <mat-header-cell *matHeaderCellDef> Username </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{ user.username }} </mat-cell>
