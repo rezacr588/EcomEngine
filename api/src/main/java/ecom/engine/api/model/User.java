@@ -127,4 +127,23 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
+
+    // Getter and setter for the last name
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    // Getter and setter for the phone number
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
 }
