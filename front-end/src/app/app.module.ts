@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
@@ -28,12 +26,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
+import { LayoutModule } from './layout/layout.module'; // Import the LayoutModule
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    FooterComponent,
     HomeComponent,
     ProductsComponent,
     ProductDetailsComponent,
@@ -63,6 +60,7 @@ import { MatListModule } from '@angular/material/list';
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,11 @@
+/* navbar.component.css */
+.spacer {
+  flex: 1 1 auto;
+}
+/* navbar.component.css */
+.custom-home-button {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); /* Slight shadow */
+}
