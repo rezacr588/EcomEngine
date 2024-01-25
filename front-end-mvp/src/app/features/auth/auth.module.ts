@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { UsersComponent } from './users/users.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MatTableModule } from '@angular/material/table';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatTableModule,
+    MatButtonModule,
   ],
 })
 export class AuthModule {}

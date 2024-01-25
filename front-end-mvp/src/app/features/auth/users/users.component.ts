@@ -10,7 +10,7 @@ import { User } from 'src/app/models/user.model';
 export class UsersComponent implements OnInit {
   users: User[] = [];
 
-  displayedColumns: string[] = ['username', 'email', 'password'];
+  displayedColumns: string[] = ['username', 'email', 'password', 'delete'];
 
   constructor(private usersService: UsersService) {}
 
@@ -25,5 +25,20 @@ export class UsersComponent implements OnInit {
       },
       error: (e) => console.error(e),
     });
+  }
+  deleteUser(userId: number): void {
+    if (confirm('Are you sure you want to delete this user?')) {
+      this.usersService.deleteUser(userId).subscribe({
+        next: () => {
+          // Remove the user from the users array or refresh the list
+          this.users = this.users.filter((user) => user.id !== userId);
+          // Optionally, show a success message
+        },
+        error: (e) => {
+          console.error(e);
+          // Optionally, show an error message
+        },
+      });
+    }
   }
 }

@@ -17,6 +17,13 @@
       <mat-cell *matCellDef="let user"> {{ user.password }} </mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+      <mat-cell *matCellDef="let user">
+        <button mat-button (click)="deleteUser(user.id)">Delete</button>
+      </mat-cell>
+    </ng-container>
+
     <!-- Footer and header setup -->
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
