@@ -24,6 +24,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductListComponent } from './product-list/product-list.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -49,12 +53,16 @@ import { ProductListComponent } from './product-list/product-list.component';
     BrowserAnimationsModule,
     MatCardModule,
     BrowserAnimationsModule,
+    MatListModule,
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
     MatFormFieldModule,
     HttpClientModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

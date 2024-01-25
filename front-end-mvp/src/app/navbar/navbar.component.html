@@ -1,11 +1,10 @@
-<nav class="navbar">
-  <div class="navbar-brand">Ecom</div>
-  <ul class="navbar-nav">
-    <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/products">Products</a>
-    </li>
-    <li class="nav-item"><a class="nav-link" routerLink="/cart">Cart</a></li>
-    <li class="nav-item"><a class="nav-link" routerLink="/login">Login</a></li>
-  </ul>
-</nav>
+<!-- navbar.component.html -->
+<mat-toolbar color="primary">
+  <span>Ecom</span>
+  <span class="spacer"></span>
+
+  <button mat-button [routerLink]="'/products'">Products</button>
+  <button mat-button [routerLink]="'/cart'">Cart</button>
+  <button mat-button [routerLink]="'/auth/login'">Login</button>
+  <button mat-button [routerLink]="'/'" class="custom-home-button">Home</button>
+</mat-toolbar>
