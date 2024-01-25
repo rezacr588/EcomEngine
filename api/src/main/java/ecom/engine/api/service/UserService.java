@@ -95,4 +95,15 @@ public class UserService {
         }
     }
 
+    public User login(String username, String password) {
+        // Find the user by username and password
+        Optional<User> userOptional = userRepository.findByUsernameAndPassword(username, password);
+
+        if (userOptional.isPresent()) {
+            return userOptional.get();
+        } else {
+            throw new UserNotFoundException("Invalid username or password.");
+        }
+    }
+
 }

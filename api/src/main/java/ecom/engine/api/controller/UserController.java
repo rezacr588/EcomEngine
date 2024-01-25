@@ -1,8 +1,10 @@
 package ecom.engine.api.controller;
 
+import ecom.engine.api.exception.UserNotFoundException;
 import ecom.engine.api.model.User;
 import ecom.engine.api.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,6 +55,20 @@ public class UserController {
     public ResponseEntity<?> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return ResponseEntity.ok().build();
+    }
+
+    // Login a user
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser(@RequestBody User user) {
+        try {
+            User authenticatedUser = userService.login(user.getUsername(), user.getPassword());
+            // You might want to return only necessary user info or a JWT token
+            // For simplicity, returning the authenticated user
+            return ResponseEntity.ok(authenticatedUser);
+        } catch (UserNotFoundException e) {
+            // Handle invalid credentials
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
+        }
     }
 
 }

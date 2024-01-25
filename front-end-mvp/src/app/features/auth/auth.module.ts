@@ -5,7 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { ProfileComponent } from './profile/profile.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { UsersComponent } from './users/users.component';
 import { MatTableModule } from '@angular/material/table';
@@ -26,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatSnackBarModule,
     MatTableModule,
     MatButtonModule,
+    FormsModule,
   ],
 })
 export class AuthModule {}
