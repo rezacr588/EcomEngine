@@ -95,9 +95,9 @@ public class UserService {
         }
     }
 
-    public User login(String username, String password) {
+    public User login(String email, String password) {
         // Find the user by username and password
-        Optional<User> userOptional = userRepository.findByUsernameAndPassword(username, password);
+        Optional<User> userOptional = userRepository.findByEmailAndPassword(email, password);
 
         if (userOptional.isPresent()) {
             return userOptional.get();

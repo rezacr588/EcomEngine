@@ -61,7 +61,7 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody User user) {
         try {
-            User authenticatedUser = userService.login(user.getUsername(), user.getPassword());
+            User authenticatedUser = userService.login(user.getEmail(), user.getPassword());
             // You might want to return only necessary user info or a JWT token
             // For simplicity, returning the authenticated user
             return ResponseEntity.ok(authenticatedUser);
