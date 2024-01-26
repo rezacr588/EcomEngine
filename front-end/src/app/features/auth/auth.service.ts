@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators'; // Import tap along with map
 import { User } from 'src/app/models/user.model';
@@ -15,6 +15,7 @@ export interface LoginResponse {
 })
 export class AuthService {
   private loginUrl = 'http://localhost:8080/api/users/login';
+  private meUrl = 'http://localhost:8080/api/users/me';
 
   constructor(
     private http: HttpClient,
@@ -34,6 +35,14 @@ export class AuthService {
         }),
         map((response) => response as LoginResponse) // This may not be necessary if your response is already typed
       );
+  }
+
+  fetchCurrentUser(): Observable<User> {
+    const token = localStorage.getItem('jwtToken');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http
+      .get<User>(this.meUrl, { headers })
+      .pipe(tap((user) => this.appStateService.authenticateUser(user)));
   }
 
   logout() {
