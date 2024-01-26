@@ -16,12 +16,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatMenuModule,
     MatListModule,
     MatToolbarModule,
-    RouterModule, // Import RouterModule here to use routerLink in your components
+    RouterModule,
   ],
-  exports: [
-    // Export HeaderComponent and FooterComponent so they can be used outside this module
-    HeaderComponent,
-    FooterComponent,
-  ],
+  exports: [HeaderComponent, FooterComponent],
 })
 export class LayoutModule {}
