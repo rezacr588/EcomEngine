@@ -26,7 +26,7 @@ public class CartService {
     public Cart addItemToCart(Long userId, Long productId, int quantity) {
         // Find or create a cart for the user
         Cart cart = cartRepository.findByUserId(userId).orElse(new Cart(/* user */));
-        
+
         // Find the product to be added
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
@@ -44,7 +44,41 @@ public class CartService {
         return cartRepository.findByUserId(userId);
     }
 
-    // Additional methods for updating and deleting cart items
+    public Cart updateCartItem(Long userId, Long itemId, int quantity) {
+        Cart cart = cartRepository.findByUserId(userId)
+                .orElseThrow(() -> new RuntimeException("Cart not found"));
+
+        CartItem cartItem = cart.getItems().stream()
+                .filter(item -> item.getId().equals(itemId))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Cart item not found"));
+
+        if (quantity > 0) {
+            cartItem.setQuantity(quantity);
+        } else {
+            cart.getItems().remove(cartItem);
+        }
+
+        return cartRepository.save(cart);
+    }
+
+    public Cart removeCartItem(Long userId, Long itemId) {
+        Cart cart = cartRepository.findByUserId(userId)
+                .orElseThrow(() -> new RuntimeException("Cart not found"));
+
+        cart.getItems().removeIf(item -> item.getId().equals(itemId));
+
+        return cartRepository.save(cart);
+    }
+
+    public void clearCart(Long userId) {
+        Cart cart = cartRepository.findByUserId(userId)
+                .orElseThrow(() -> new RuntimeException("Cart not found"));
+
+        cart.getItems().clear();
+
+        cartRepository.save(cart);
+    }
 
     // Business logic as required...
 
