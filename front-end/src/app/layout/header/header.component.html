@@ -1,10 +1,28 @@
-<!-- navbar.component.html -->
+<!-- header.component.html -->
 <mat-toolbar color="primary">
   <span>Ecom</span>
   <span class="spacer"></span>
 
   <button mat-button [routerLink]="'/products'">Products</button>
   <button mat-button [routerLink]="'/cart'">Cart</button>
-  <button mat-button [routerLink]="'/auth/login'">Login</button>
+
+  <!-- Show 'Logout' if authenticated -->
+  <button
+    *ngIf="(state$ | async)?.isAuthenticated"
+    mat-button
+    (click)="logout()"
+  >
+    Logout
+  </button>
+
+  <!-- Show 'Login' if not authenticated -->
+  <button
+    *ngIf="!(state$ | async)?.isAuthenticated"
+    mat-button
+    [routerLink]="'/auth/login'"
+  >
+    Login
+  </button>
+
   <button mat-button [routerLink]="'/'" class="custom-home-button">Home</button>
 </mat-toolbar>

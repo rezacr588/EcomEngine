@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../models/user.model';
 
-interface AppState {
+export interface AppState {
   isAuthenticated: boolean;
   user: User | null;
 }
