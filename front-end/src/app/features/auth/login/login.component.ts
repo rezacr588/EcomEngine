@@ -27,18 +27,21 @@ export class LoginComponent {
       const { email, password } = this.loginForm.value;
       this.authService.login(email, password).subscribe({
         next: (response) => {
-          // Handle successful login
           console.log('Login successful', response);
-          this.router.navigate(['/']); // Redirect to home or dashboard
+          this.router.navigate(['/dashboard']); // Redirect to a specific route after login
         },
         error: (err) => {
-          // Handle login error
           console.error('Login failed', err);
+          // Display an error message to the user, e.g., "Invalid credentials"
+          // This could be a Snackbar, Toast, or a simple text message in your template
         },
       });
     } else {
-      // Handle form errors
-      console.error('Form is not valid');
+      // Provide feedback for form validation errors
+      // E.g., iterate over the form controls and mark them as touched to show validation errors
+      Object.values(this.loginForm.controls).forEach((control) => {
+        control.markAsTouched();
+      });
     }
   }
 }
