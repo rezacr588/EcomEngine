@@ -28,4 +28,10 @@ export class ProductDetailsComponent implements OnInit {
       this.product = product;
     });
   }
+
+  addToCart(product: any) {
+    // Implement the logic to add the product to the cart
+    console.log('Adding to cart:', product);
+    // You might want to inject a service here that handles the cart logic
+  }
 }
