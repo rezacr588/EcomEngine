@@ -27,6 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { LayoutModule } from './layout/layout.module'; // Import the LayoutModule
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { LayoutModule } from './layout/layout.module'; // Import the LayoutModul
     MatIconModule,
     MatMenuModule,
     LayoutModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,18 +1,41 @@
 <ng-container *ngIf="product">
-  <mat-card [class.featured-product]="product.featured" class="product-details">
+  <mat-card class="product-card" [class.featured-product]="product.featured">
     <mat-card-header>
       <div mat-card-avatar class="product-image">
-        <img mat-card-image [src]="product.imageUrl" alt="Product Image" />
+        <img mat-card-image [src]="product.imageUrl" alt="{{ product.name }}" />
       </div>
       <mat-card-title>{{ product.name }}</mat-card-title>
       <mat-card-subtitle>{{ product.price | currency }}</mat-card-subtitle>
     </mat-card-header>
+
+    <img
+      mat-card-image
+      [src]="product?.imageUrl"
+      alt="{{ product?.name }}"
+      *ngIf="false"
+    />
+
     <mat-card-content>
-      <p class="description">{{ product.description }}</p>
-      <p class="category">{{ product.category }}</p>
+      <p class="product-description">{{ product.description }}</p>
+      <p class="product-category">{{ product.category }}</p>
+      <mat-form-field appearance="fill" class="quantity-field">
+        <mat-label>Quantity</mat-label>
+        <input
+          title="quantity"
+          matInput
+          type="number"
+          [(ngModel)]="quantity"
+          min="1"
+        />
+      </mat-form-field>
     </mat-card-content>
+
     <mat-card-actions align="end">
-      <button mat-raised-button color="primary" (click)="addToCart(product)">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="addToCart(product, quantity)"
+      >
         Add to Cart
       </button>
     </mat-card-actions>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
+import { CartService } from '../services/cart.service'; // Ensure CartService is imported
 import { Product } from '../models/product.model';
+import { AppStateService } from '../core/app-state.service';
 
 @Component({
   selector: 'app-product-details',
@@ -10,15 +12,18 @@ import { Product } from '../models/product.model';
 })
 export class ProductDetailsComponent implements OnInit {
   product: Product | undefined;
+  quantity: number = 1;
 
   constructor(
     private productService: ProductService,
+    private cartService: CartService,
+    private appStateService: AppStateService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      const id = +params['id']; // The '+' converts the string to a number
+    this.route.params.subscribe((params) => {
+      const id = +params['id'];
       this.getProductById(id);
     });
   }
@@ -29,9 +34,27 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  addToCart(product: any) {
-    // Implement the logic to add the product to the cart
-    console.log('Adding to cart:', product);
-    // You might want to inject a service here that handles the cart logic
+  addToCart(product: Product, quantity: number) {
+    let userId: number | undefined;
+
+    this.appStateService.getState().subscribe((state) => {
+      userId = state.user?.id; // Extract user ID from AppState
+    });
+
+    if (userId && product.id) {
+      this.cartService.addItemToCart(userId, product.id, quantity).subscribe({
+        next: (cart) => {
+          console.log('Product added to cart', cart);
+          // Handle successful addition (e.g., show notification)
+        },
+        error: (error) => {
+          console.error('Error adding product to cart:', error);
+          // Handle error (e.g., show error message)
+        },
+      });
+    } else {
+      console.error('User ID or Product ID is missing');
+      // Handle missing ID (e.g., show error message)
+    }
   }
 }
