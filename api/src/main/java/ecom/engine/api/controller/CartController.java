@@ -5,6 +5,7 @@ import ecom.engine.api.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/cart")
@@ -17,11 +18,12 @@ public class CartController {
         this.cartService = cartService;
     }
 
-    // Add an item to the cart
     @PostMapping("/{userId}/add/{productId}")
     public ResponseEntity<Cart> addItemToCart(@PathVariable Long userId, @PathVariable Long productId,
-            @RequestParam int quantity) {
+            @RequestBody Map<String, Object> body) {
+        int quantity = (Integer) body.get("quantity"); // Cast the value to Integer
         Cart updatedCart = cartService.addItemToCart(userId, productId, quantity);
+
         return ResponseEntity.ok(updatedCart);
     }
 

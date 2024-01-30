@@ -8,6 +8,7 @@ import ecom.engine.api.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
@@ -22,17 +23,26 @@ public class CartService {
         this.productRepository = productRepository;
     }
 
-    // Method to add an item to a cart
     public Cart addItemToCart(Long userId, Long productId, int quantity) {
         // Find or create a cart for the user
-        Cart cart = cartRepository.findByUserId(userId).orElse(new Cart(/* user */));
+        Cart cart = cartRepository.findByUserId(userId)
+                .orElseGet(() -> new Cart(/* user */)); // Ensure a Cart is always obtained
+
+        // Initialize the items list if it's null - important for new carts
+        if (cart.getItems() == null) {
+            cart.setItems(new ArrayList<>());
+        }
 
         // Find the product to be added
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
 
         // Create and add a new CartItem
-        CartItem cartItem = new CartItem(cart, product, quantity);
+        CartItem cartItem = new CartItem();
+        cartItem.setCart(cart);
+        cartItem.setProduct(product);
+        cartItem.setQuantity(quantity);
+
         cart.getItems().add(cartItem);
 
         // Save the updated cart
